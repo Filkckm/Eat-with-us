@@ -4,8 +4,34 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>You can eat with us!</p>
+    <nav>
+
+      <a href="/login">login</a> | <a href="/signup">Sign up</a>
+    </nav>
+
+    <div id="pac-container">
+      <!-- search bar  -->
+         <input id="pac-input" type="text"
+             placeholder="Enter a location">
+
+    </div>
+    <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+      <div id="map"></div>
+      <ul id="geoData">
+          <li>Full Address: <span id="location"></span></li>
+          <li>Postal Code: <span id="postal_code"></span></li>
+          <li>Country: <span id="country"></span></li>
+          <li>Latitude: <span id="lat"></span></li>
+          <li>Longitude: <span id="lon"></span></li>
+    </ul>
+
   </body>
+
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap" async defer></script>
+<script type="text/javascript" src="/javascripts/search.js"></script>
+  <script type="text/javascript"></script>
 </html>
