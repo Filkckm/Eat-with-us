@@ -4,9 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
+var authRoute = require('./routes/auth-routes');
 var index = require('./routes/index');
 var users = require('./routes/users');
+
+//mongoose.connect("mongodb://localhost:3000/eat-with-usDB");
+
+mongoose.connect("mongodb://localhost:27017/eat-with-usDB");
+
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 var app = express();
 
@@ -22,6 +31,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+app.use('/', authRoute);
 app.use('/', index);
 app.use('/users', users);
 
