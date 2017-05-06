@@ -11,10 +11,21 @@ a {
   margin-right: 10px;
 }
 
+.navbar-inner{
+  background-color: transparent;
+   background: transparent;
+   border-color: transparent;
 
+}
 .content-header{
-  font-size: 40px;
+  background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+  font-family: impact;
+  font-size: 80px;
   color: white;
+  text-align: center;
+  padding-bottom:40px;
 }
 #locationName{
   font-size: 100%;
@@ -41,17 +52,49 @@ label {
 
 .nav-item{
   padding: 15px;
-  font-size:18px;
+  font-size:16px;
   height:60px;
 
 }
 .nav-item1{
   padding: 15px;
-  font-size:18px;
+  font-size:16px;
   height:60px;
 }
 
 .information-text-box{
-  height: 200px;
+  background-color: lightblue;
+  text-align: center;
+  border:  solid white 10px;
+  border-radius: 30px;
+  height: 500px;
   padding: 20px;
+}
+.img-circle{
+  margin-bottom: 0px;
+  width: 15vh  ;
+  height: auto;
+}
+.user-info-box-left{
+  border: 2px dotted black;
+}
+.user-description-box{
+  border: 2px dotted black;
+}
+
+.seperator-box{
+  height: 300px;
+  padding-top: 100px;
+  background-color: lightblue;
+}
+.profile-image{
+
+}
+  .name-tag{
+    padding-left: 300px;
+  }
+.search-button{
+  background: white;
+  width:100px;
+  height:40px;
 }
