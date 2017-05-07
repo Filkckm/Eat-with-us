@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+var $ = require('jQuery');
 
 var authRoute = require('./routes/auth-routes');
 var index = require('./routes/index');

@@ -4,10 +4,8 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  userLocation: {street:    String,
-                city:       String,
-                postalCode: Number},
-  userReviews: []
+  address : Object,
+  userReviews: Array
 },
     {
       timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
