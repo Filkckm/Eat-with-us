@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 var authRoute = require('./routes/auth-routes');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var profile = require('./routes/profile');
 
 //mongoose.connect("mongodb://localhost:3000/eat-with-usDB");
 
@@ -43,6 +44,8 @@ app.use(session({
 app.use('/', authRoute);
 app.use('/', index);
 app.use('/users', users);
+app.use('/', profile);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,37 +1,90 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title> <%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon1.ico" type="image/png">
+
   </head>
 
   <body>
-    <h1><%= title %></h1>
-    <p>You can eat with us!</p>
-    <nav>
+<!-- navbar -->
+<div class="navbar navbar-default navbar-fixed-top navbar-inner" data-toggle="collapse">
+    <div class="row">
+        <div class="col-xs-12 col-sm-7 col-lg-7 nav-item">
+          <a href="/">Home</a></div>
+        <div class="col-xs-12 col-sm-5 col-lg-5 nav-item">
+                <a href="/profile">Profile</a>
+                <a href="/signup">Signup</a>
+                <a href="/login">Login</a>
+                <a href="/logout">Logout</a>
+        </div>
+    </div>
+</div>
+<!-- navbar -->
 
-      <a href="/login">login</a> | <a href="/signup">Sign up</a>
-    </nav>
 
-    <div id="pac-container">
-      <!-- search bar  -->
-         <input id="pac-input" type="text"
-             placeholder="Enter a location">
+<div class="container-fluid search-date-container text-center">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-lg-12 background-image">
+
+        <h3 class="content-header">You can eat with us</h3>
+
+        <div class="submit-form vcenter">
+                <form action="Submit">
+
+                  <label for="location">Where are you going?</label>
+                  <input id="locationName" name="locationName" type="text" class="input-form">
+                    <br>
+                    <br>
+                  <label for="date">When?</label>
+                  <input type="date" class="input-form">
+                  <br>
+                  <br>
+                <button type="submit" class="search-button"><span class="glyphicon glyphicon-zoom-in"></span> Search</a></button>
+                </form>
+        </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<div class="container information-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-lg-4 information-text-box">
+        <img src="images/waiter.png" class="img-circle" alt="Cinque Terre">
+        <p><strong>information text 1</strong>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, </p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-lg-4 information-text-box">
+        <img src="images/cooking.png" class="img-circle" alt="Cinque Terre">
+        <p><strong>information text 2</strong>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-lg-4 information-text-box">
+        <img src="images/bar.png" class="img-circle" alt="Cinque Terre">
+        <p><strong>information text 3</strong>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
+      </div>
 
     </div>
-    <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
-      <div id="map"></div>
-      <ul id="geoData">
-          <li>Full Address: <span id="location"></span></li>
-          <li>Postal Code: <span id="postal_code"></span></li>
-          <li>Country: <span id="country"></span></li>
-          <li>Latitude: <span id="lat"></span></li>
-          <li>Longitude: <span id="lon"></span></li>
-    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
 
   </body>
-
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap" async defer></script>
-<script type="text/javascript" src="/javascripts/search.js"></script>
-  <script type="text/javascript"></script>
+<!-- scripts -->
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIE4dsj3p9EoaRDnXSw24m9yGx_zCn0U&libraries=places"></script>
+      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIE4dsj3p9EoaRDnXSw24m9yGx_zCn0U&libraries=places&callback=initMap" async defer></script> -->
+    <script type="text/javascript" src="/javascripts/searchWithoutMap.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript"></script>
 </html>
