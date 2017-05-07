@@ -1,5 +1,7 @@
+var $ = require('jQuery');
 const express = require('express');
 const router = express.Router();
+
 
 const User = require('../models/user');
 
@@ -19,11 +21,9 @@ router.get('/signup', function(req, res, next) {
 router.post('/signup', (req,res,next)=>{
   const username    = req.body.username;
   const password    = req.body.password;
-  const street      = req.body.street;
-  const city        = req.body.city;
-  const postalCode  = req.body.postalCode;
+  const address     = req.body.locationName;
 
-  if (username === "" || password === "" || street === "" || city === "" || postalCode === "") {
+  if (username === "" || password === "" || address === "") {
       res.render("auth/signup", {
         errorMessage: "Indicate all information to sign up"
       });
@@ -47,11 +47,8 @@ router.post('/signup', (req,res,next)=>{
     var newUser  = new User({
       username: username,
       password: hashPass,
-      userLocation :{
-        street: street,
-        city: city,
-        postalCode: postalCode
-      }
+      address : address
+
     });
 
     newUser.save((err) => {
