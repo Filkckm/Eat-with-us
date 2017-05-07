@@ -14,5 +14,14 @@ module.exports = {
     } else {
       res.redirect('/users');
     }
+  },
+  setCurrentUser:(req, res, next)=>{
+    if(req.isAuthenticated()){
+      res.locals.currentUser =req.user;
+      res.locals.isUserLoggedIn =true;
+    } else{
+      res.locals.isUserLoggedIn=false;
+    }
+    next();
   }
 };

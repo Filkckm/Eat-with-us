@@ -1,0 +1,11 @@
+<a href="/users/new">New User</a>
+
+<ul>
+  <% users.forEach((user) => { %>
+    <li>
+      <a href="/users/<%= user._id %>"><%= user.username %> - $<%= user.address %></a>
+      <a href="/users/<%= user._id %>/edit">Edit</a>
+      <a href="/users/<%= user._id %>/delete">Delete</a>
+    </li>
+  <%  }) %>
+</ul>

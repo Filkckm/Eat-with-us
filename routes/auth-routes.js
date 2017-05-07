@@ -85,7 +85,7 @@ router.post('/login' ,(req, res, next)=> {
       if (bcrypt.compareSync(password, user.password)) {
         // Save the login in the session!
         req.session.currentUser = user;
-        res.redirect("/");
+        res.render("main", {user});
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"

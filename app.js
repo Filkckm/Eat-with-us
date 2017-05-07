@@ -6,12 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var $ = require('jQuery');
-
+var auth = require('./helpers/auth');
 var authRoute = require('./routes/auth-routes');
 var index = require('./routes/index');
-var users = require('./routes/users');
-var profile = require('./routes/profile');
-
+const users = require('./routes/users');
+var passport =require('passport');
+var main=require('./routes/main');
 //mongoose.connect("mongodb://localhost:3000/eat-with-usDB");
 
 mongoose.connect("mongodb://localhost:27017/eat-with-usDB");
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+// app.use(auth.setCurrentUser);
 app.use(session({
   secret: "basic-auth-secret",
   cookie: { maxAge: 60000 },
@@ -44,8 +44,9 @@ app.use(session({
 
 app.use('/', authRoute);
 app.use('/', index);
+app.use('/', main);
 app.use('/users', users);
-app.use('/', profile);
+
 
 
 // catch 404 and forward to error handler
