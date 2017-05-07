@@ -2,6 +2,7 @@ $(document).ready(() => {
   init();
   google.maps.event.addDomListener(window, 'load', init);
 });
+
 function init() {
   const input = document.getElementById('locationName');
   const autocomplete = new google.maps.places.Autocomplete(input);
