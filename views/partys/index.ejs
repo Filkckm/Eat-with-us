@@ -1,0 +1,11 @@
+<a href="/partys/new">New party</a>
+
+<ul>
+  <% partys.forEach((party) => { %>
+    <li>
+      <a href="/partys/<%= party._id %>"><%= party.partyName %> - $<%= party.partyPrice %></a>
+      <a href="/partys/<%= party._id %>/edit">Edit</a>
+      <a href="/partys/<%= party._id %>/delete">Delete</a>
+    </li>
+  <%  }) %>
+</ul>

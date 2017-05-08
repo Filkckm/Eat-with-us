@@ -1,0 +1,9 @@
+<form action="/users/<%= user._id %>/update" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="username" value="<%= user.name %>">
+
+  <label for="address">Address</label>
+  <textarea type="text" name="address" id="address"><%= user.address %></textarea>
+
+  <button type="submit">Edit Product</button>
+</form>

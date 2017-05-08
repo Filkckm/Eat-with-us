@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Eat with us</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon1.ico" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+<body>
+  <h2>Create a new Event:</h2>
+
+  <form action="/partys" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name1" name="name">
+  <br>
+    <label for="location">Where are you going?</label>
+    <input id="locationName" name="locationName" type="text" class="input-form">
+  <br>
+    <label for="price">Price:</label>
+    <input type="number1" name="price" id="price1">
+  <br>
+    <label for="description">Description:</label>
+    <textarea type="text" name="description" id="description1"></textarea>
+  <br>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date1">
+  <br>
+    <label for="type">Type:</label>
+    <input type="text" name="type" id="type1">
+  <br>
+    <label for="guests">Guests</label>
+    <input type="guests" name="guests" id="guests1">
+  <br>
+    <label for="time">Time</label>
+    <input type="text" name="time" id="time1">
+  <br>
+    <label for="vegetarian">Vegetarian:</label>
+    <input type="text" name="vegetarian" id="vegetarian1">
+
+  <br>
+    <button type="submit">Create Event</button>
+  </form>
+</body>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIE4dsj3p9EoaRDnXSw24m9yGx_zCn0U&libraries=places"></script>
+<script type="text/javascript" src="/javascripts/searchWithoutMap.js"></script>
+</html>
