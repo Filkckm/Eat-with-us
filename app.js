@@ -15,11 +15,15 @@ var main=require('./routes/main');
 const User = require('./models/user');
 
 mongoose.connect("mongodb://localhost:27017/eat-with-usDB");
+
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const bcrypt       = require("bcrypt");
+const passport = require('./helpers/passport');
+const LocalStrategy = require("passport-local").Strategy;
 // require user model
 
-const passport = require('./helpers/passport');
+
 
 var app = express();
 

@@ -4,7 +4,7 @@ const LocalStrategy = require('passport-local').Strategy;
 // Require the Mongoose models
 const User = require('../models/user.js');
 passport.serializeUser((user, cb) => {
-  cb(null, user.id);
+  cb(null, user);
 });
 passport.deserializeUser((id, cb) => {
   User.findOne({ _id: id }, (err, user) => {

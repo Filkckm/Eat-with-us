@@ -1,8 +1,9 @@
 var $ = require('jQuery');
 const express = require('express');
 const router = express.Router();
-const passport = require("passport");
 const User = require('../models/user');
+const passport = require("passport");
+
 
 // set up bcrypt
 const bcrypt = require('bcrypt');
@@ -79,10 +80,10 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
-console.log(req.session.currentUser);
-  req.session.currentUser = user;
+  console.log(req.session.passport.user);
 
-  res.render("private", { user: req.User});
+  let user = req.session.passport.user;
+  res.render("private", { user});
 
 });
 
