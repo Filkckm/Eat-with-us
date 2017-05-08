@@ -12,7 +12,7 @@ module.exports = {
     if (req.session.currentUser) {
       next();
     } else {
-      res.redirect('/users');
+      res.redirect('/');
     }
   },
   setCurrentUser:(req, res, next)=>{

@@ -12,15 +12,23 @@
 <!-- navbar -->
 <div class="navbar navbar-default navbar-fixed-top navbar-inner" data-toggle="collapse">
     <div class="row">
-        <div class="col-xs-12 col-sm-7 col-lg-7 nav-item">
+        <div class="col-xs-12 col-sm-7 col-lg-7 nav-item1">
           <a href="/">Home</a></div>
         <div class="col-xs-12 col-sm-5 col-lg-5 nav-item">
                 <% if(typeof(user)!=="undefined"){%>
                   <a href="/users/<%=user._id%>">Profile</a>
                 <%}%>
-                <a href="/main">Main</a>
+                <% if(typeof(user)!=="undefined"){%>
+                  <a href="/main">Main</a>
+              <%}%>
+              <% if(typeof(user)=="undefined"){%>
                 <a href="/signup">Signup</a>
-                <a href="/login">Login</a>
+            <%}%>
+            <% if(typeof(user)=="undefined"){%>
+              <a href="/login">Login</a>
+          <%}%>
+
+
                   <% if(typeof(user)!=="undefined"){%>
                 <a href="/logout">Logout</a>
                 <%}%>

@@ -6,18 +6,20 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var $ = require('jQuery');
+const flash = require("connect-flash");
 var auth = require('./helpers/auth');
 var authRoute = require('./routes/auth-routes');
 var index = require('./routes/index');
 const users = require('./routes/users');
-var passport =require('passport');
 var main=require('./routes/main');
-//mongoose.connect("mongodb://localhost:3000/eat-with-usDB");
+const User = require('./models/user');
 
 mongoose.connect("mongodb://localhost:27017/eat-with-usDB");
-
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+// require user model
+
+const passport = require('./helpers/passport');
 
 var app = express();
 
@@ -32,16 +34,34 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 // app.use(auth.setCurrentUser);
+//session//
+
 app.use(session({
-  secret: "basic-auth-secret",
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true,
   cookie: { maxAge: 60000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
+// adding our own middleware so all pages can access currentUser
+app.use((req, res, next) => {
+  res.locals.currentUser = req.User;
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
+  next();
+});
+
+//routes
 app.use('/', authRoute);
 app.use('/', index);
 app.use('/', main);

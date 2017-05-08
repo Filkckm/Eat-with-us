@@ -1,23 +1,20 @@
 var $ = require('jQuery');
 const express = require('express');
 const router = express.Router();
-
-
+const passport = require("passport");
 const User = require('../models/user');
 
 // set up bcrypt
 const bcrypt = require('bcrypt');
 const bcryptSalt     = 10;
-
+const ensureLogin = require("connect-ensure-login");
 
 // show form to signup
 router.get('/signup', function(req, res, next) {
   res.render('auth/signup');
 });
-
 //post method to deal with users
 //process form signup
-
 router.post('/signup', (req,res,next)=>{
   const username    = req.body.username;
   const password    = req.body.password;
@@ -60,39 +57,18 @@ router.post('/signup', (req,res,next)=>{
 
 /////////LOGIN PAGE ROUTE/////////
 //render login page
-router.get('/login', (req, res, next)=>{
-  res.render('auth/login');
+
+
+router.get("/login", (req, res, next) => {
+  res.render("auth/login", { "message": req.flash("error") });
 });
 
-//actual login
-router.post('/login' ,(req, res, next)=> {
-  var username = req.body.username;
-  var password = req.body.password;
-
-  if(username==="" || password ==="") {
-    res.render("auth/login", {
-      errorMessage:"Indicate a username and a password to sign up"
-    });
-    return;
-  }User.findOne({ "username": username }, (err, user) => {
-      if (err || !user) {
-        res.render("auth/login", {
-          errorMessage: "The username doesn't exist"
-        });
-        return;
-      }
-
-      if (bcrypt.compareSync(password, user.password)) {
-        // Save the login in the session!
-        req.session.currentUser = user;
-        res.render("main", {user});
-      } else {
-        res.render("auth/login", {
-          errorMessage: "Incorrect password"
-        });
-      }
-  });
-});
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
 //logout and end session
 router.get('/logout', (req, res, next) => {
@@ -102,7 +78,13 @@ router.get('/logout', (req, res, next) => {
   });
 });
 
+router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
+console.log(req.session.currentUser);
+  req.session.currentUser = user;
 
+  res.render("private", { user: req.User});
+
+});
 
 
 
