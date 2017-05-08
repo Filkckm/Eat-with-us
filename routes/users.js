@@ -1,6 +1,14 @@
-var express = require('express');
-var router = express.Router();
+var $ = require('jQuery');
+const express = require('express');
+const router = express.Router();
 const User = require('../models/user');
+const passport = require("passport");
+
+
+// set up bcrypt
+const bcrypt = require('bcrypt');
+const bcryptSalt     = 10;
+const ensureLogin = require("connect-ensure-login");
 
 /* GET users listing. */
 //shows users
@@ -36,14 +44,15 @@ router.get('/:userId/delete', (req, res, next) => {
   });
 });
 
-router.get('/:userId', (req, res, next)=> {
+router.get('/profile', ensureLogin.ensureLoggedIn(), (req, res, next)=> {
   let userId = req.params.userId;
+  let user = req.session.passport.user;
 
-  User.findById(userId, (err, product) => {
+  User.findById(userId, (err, user) => {
     if (err) {
       next(err);
     } else {
-      res.render('users/show', product );
+      res.render('users/show', user );
     }
   });
 });

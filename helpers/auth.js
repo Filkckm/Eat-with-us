@@ -23,5 +23,6 @@ module.exports = {
       res.locals.isUserLoggedIn=false;
     }
     next();
-  }
+  },
+
 };
