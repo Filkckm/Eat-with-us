@@ -43,7 +43,7 @@ router.post('/signup', (req, res, next) => {
         res.render("auth/signup", { message: req.flash('error') });
       } else {
         passport.authenticate("local")(req, res, function () {
-          res.redirect('/main');
+          res.redirect('/');
         });
       }
     });
@@ -55,7 +55,7 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/main",
+  successRedirect: "/profile",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
@@ -69,8 +69,8 @@ router.get('/logout', (req, res) => {
 });
 router.get("/auth/facebook",          passport.authenticate("facebook"));
 router.get("/auth/facebook/callback", passport.authenticate("facebook", {
-  successRedirect: "/main",
-  failureRedirect: "/"
+  successRedirect: "/",
+  failureRedirect: "/login"
 }));
 router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
 console.log(req.session.currentUser);
