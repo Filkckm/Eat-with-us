@@ -11,6 +11,70 @@ a {
   margin-right: 10px;
 }
 
+#locationName{
+  font-size: 100%;
+  font-family: sans-serif;
+  width: 40%;
+  height: 40px;
+}
+
+#locationName1{
+   outline: 0;
+   background: #f2f2f2;
+   width: 100%;
+   border: 0;
+   margin: 0 0 15px;
+   padding: 15px;
+   box-sizing: border-box;
+   font-size: 14px;
+}
+/*AUTH FORMS>>>>>>><*/
+
+.auth-input1 {
+  outline: 0;
+ background: #f2f2f2;
+ width: 100%;
+ border: 0;
+ margin: 0 0 15px;
+ padding: 15px;
+ box-sizing: border-box;
+ font-size: 14px;
+}
+.auth-button1{
+  text-transform: uppercase;
+  outline: 0;
+  background: #235668;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.auth-label{
+  color: darkgrey;
+
+}
+.auth-form-container{
+  background-color: #235668;
+  height:100vh;
+ display: flex;
+ align-items: center;
+}
+.auth-form{
+  position: relative;
+  z-index: 1;
+  /*width: 360px;*/
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/*<<<<<<<AUTH FORMS*/
 .navbar-inner{
   background-color: transparent;
    background: transparent;
@@ -27,17 +91,13 @@ a {
   text-align: center;
   padding-bottom:40px;
 }
-#locationName{
-  font-size: 100%;
-  font-family: sans-serif;
-  width: 40%;
-  height: 40px;
-}
-label {
-  background-color: grey;
+
+
+.index-label{
   color: white;
   font-size: 24px;
 }
+
 .input-form{
   height: 40px;
   font-size: 20px;
@@ -85,9 +145,10 @@ label {
 }
 
 .seperator-box{
+  color: white;
   height: 300px;
   padding-top: 100px;
-  background-color: lightblue;
+  background-color: #235668;
 }
 .profile-image{
 
