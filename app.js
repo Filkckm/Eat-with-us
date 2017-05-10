@@ -1,5 +1,5 @@
 
-
+const expressLayouts = require('express-ejs-layouts');
 const express        = require('express');
 const path           = require('path');
 const favicon        = require('serve-favicon');
@@ -9,7 +9,7 @@ const bodyParser     = require('body-parser');
 const mongoose       = require('mongoose');
 const partys         = require('./routes/partys');
 const Party          = require('./models/party');
-const users       = require('./routes/users');
+const users          = require('./routes/users');
 // const portDB         = require('./config').portDB;
 // const databaseName   = require('./config').databaseName;
 var $ = require('jQuery');
@@ -26,6 +26,8 @@ const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 // require user model
 // view engine setup
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
@@ -80,4 +82,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 module.exports = app;

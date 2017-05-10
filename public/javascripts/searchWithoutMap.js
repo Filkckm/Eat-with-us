@@ -4,11 +4,16 @@ $(document).ready(() => {
   init1();
 
   google.maps.event.addDomListener(window, 'load', init);
-  $(".search-button").click(function(){
-    $(this).find("a").attr("href", "/partys?lat=" + $("#lat").val() + "&lng=" + $("#long").val());
-  });
+
 });
 
+  $("#search-button-my").click(function(event){
+    event.preventDefault();
+    console.log("click me!!!!!!😉");
+    const myLat = $("#lat").val();
+    const myLng = $("#long").val();
+    window.location.href = `/partys?lat=${myLat}&lng=${myLng}`;
+  });
 
 
 function init() {
@@ -101,4 +106,4 @@ function init() {
       console.log(location);
     });
 
-};
+}
