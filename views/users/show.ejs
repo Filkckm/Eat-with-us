@@ -10,9 +10,10 @@
 <!-- navbar -->
     <div class="navbar navbar-default navbar-fixed-top navbar-inner" data-toggle="collapse">
         <div class="row">
-            <div class="col-xs-12 col-sm-7 col-lg-7 nav-item">
+            <div class="col-xs-12 col-sm-7 col-lg-7 nav-item1">
               <a href="/">Home</a></div>
             <div class="col-xs-12 col-sm-5 col-lg-5 nav-item">
+                <a href="/profile/edit">Edit</a>
                 <a href="/logout">Logout</a>
             </div>
         </div>
@@ -22,7 +23,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-md-lg-12 seperator-box">
           <img src="images/bar.png" class="img-circle profile-image" alt="Cinque Terre">
-            <div><h2 class="name-tag"><%= user.username %></h2></div>
+            <div><h2 class="name-tag"> User: <%= user.username %></h2></div>
         </div>
       </div>
     </div>
@@ -45,9 +46,9 @@
     </div>
     <div class="col-xs-12 col-sm-9 user-description-box">
       <h2>City:</h2>
-      <p> placeholder: location from signup page</p>
+      <p> <span><%= user.address %></p>
       <h2>Description:</h2>
-      <p>i like to eat stuff und cook</p>
+      <p><span><%= user.description %></span></p>
       <h2>RATINGS</h2>
       <div class="user-reviews">
         <h2>Reviews</h2>

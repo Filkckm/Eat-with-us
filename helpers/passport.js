@@ -1,5 +1,5 @@
 const bcrypt        = require("bcrypt");
-const passport          = require('passport');
+const passport      = require('passport');
 const LocalStrategy = require("passport-local").Strategy;
 const FbStrategy    = require('passport-facebook').Strategy;
 const User          = require('../models/user');
@@ -8,6 +8,7 @@ const FACEBOOK_CLIENT_ID    = process.env.FACEBOOK_CLIENT_ID;
 const FACEBOOK_CLIENTSECRET = process.env.FACEBOOK_CLIENTSECRET;
 passport.serializeUser((user, cb)   => { cb(null, user); });
 passport.deserializeUser((user, cb) => { cb(null, user); });
+
 passport.use(new LocalStrategy({
         passReqToCallback: true
     }, (req, username, password, next) => {

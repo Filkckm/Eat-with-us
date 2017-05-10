@@ -17,6 +17,7 @@ router.post('/signup', (req, res, next) => {
   const username    = req.body.username;
   const password    = req.body.password;
   const address     = req.body.locationName;
+  console.log('this is address: ',address);
   if (username === "" || password === "" || address === "") {
     req.flash('error', 'Indicate all information' );
     res.render("auth/signup", { "message": req.flash("error") });
@@ -72,9 +73,10 @@ router.get("/auth/facebook/callback", passport.authenticate("facebook", {
   successRedirect: "/",
   failureRedirect: "/login"
 }));
+//render private page if logged in//
 router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
 console.log(req.session.currentUser);
   let user= req.session.passport.user;
-  res.render("private", { user: user});
+  res.render("private", {user});
 });
 module.exports = router;

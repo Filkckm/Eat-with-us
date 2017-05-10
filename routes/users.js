@@ -5,6 +5,7 @@ const User = require('../models/user');
 /* GET users listing. */
 //shows users
 router.get('/', (req, res, next) => {
+  let user = req.user;
   User.find({}, (error, users)=>{
     if (error) {
       next(error);
@@ -70,25 +71,48 @@ router.get('/', (req, res, next) => {
     }
   });
 });
-// router.get('/profile/edit', (req, res, next) => {
-//   User.findById(req.params.userId, (err, user)=>{
-//     if (err) {
-//       next(err);
-//     } else {
-//         res.render('users/edit', { user: user });
-//     }
-//   });
-// });
-// router.post('/:id/update', (req, res, next) => {
-// router.get('/profile/delete', (req, res, next) => {
-//   User.findByIdAndRemove(req.params.userId, (err, user)=>{
-//     if (err) {
-//       next(err);
-//     } else {
-//       res.redirect('/');
-//     }
-//   });
-// });
+
+router.get('/profile/edit', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=> {
+  console.log(req.session.passport.user._id);
+  let userId = req.session.passport.user._id;
+  User.findById(userId, (err, user) => {
+    if (err) {
+      next(err);
+    } else {
+      console.log('this is the profile user:',user);
+      res.render('users/edit', {user:user} );
+    }
+  });
+});
+
+router.post('/profile/edit', auth.checkLoggedIn('You must be login', '/login'), (req, res, next) => {
+  console.log(req.session.passport.user._id);
+  let userId = req.session.passport.user._id;
+  let userToUpdate = {
+    username:        req.body.username,
+    address:          req.body.address,
+    description:      req.body.description,
+
+  };
+  User.findByIdAndUpdate(userId, userToUpdate, (err, user)=>{
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/profile');
+    }
+  });
+});
+
+router.get('/profile/delete', (req, res, next) => {
+  User.findByIdAndRemove(userId, (err, user)=>{
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/');
+    }
+  });
+});
+
 router.get('/profile', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=> {
   console.log(req.session.passport.user._id);
   let userId = req.session.passport.user._id;
@@ -96,9 +120,11 @@ router.get('/profile', auth.checkLoggedIn('You must be login', '/login'), (req, 
     if (err) {
       next(err);
     } else {
-      console.log('this is the current user:',user);
+      console.log('this is the profile user:',user);
       res.render('users/show', {user} );
     }
   });
 });
+
+
 module.exports = router;

@@ -4,6 +4,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   address : Object,
+  description: String,
   userReviews: Array,
   events: Array,
   role: {

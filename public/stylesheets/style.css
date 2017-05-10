@@ -11,6 +11,8 @@ a {
   margin-right: 10px;
 }
 
+/*maps autocomplete>>>>>>>>>>*/
+
 #locationName{
   font-size: 100%;
   font-family: sans-serif;
@@ -28,7 +30,8 @@ a {
    box-sizing: border-box;
    font-size: 14px;
 }
-/*AUTH FORMS>>>>>>><*/
+/*<<<<<<<<<maps autocomplete*/
+/*AUTH FORMS>>>>>>>*/
 
 .auth-input1 {
   outline: 0;
@@ -75,12 +78,25 @@ a {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 /*<<<<<<<AUTH FORMS*/
+/*NAVBAR>>>>>>>*/
 .navbar-inner{
   background-color: transparent;
    background: transparent;
    border-color: transparent;
-
 }
+   .nav-item{
+     text-align: right;
+     padding: 15px;
+     font-size:16px;
+     height:60px;
+
+   }
+   .nav-item1{
+     padding: 15px;
+     font-size:16px;
+     height:60px;
+   }
+/*NAVBAR<<<<<<<<<*/
 .content-header{
   background-color: transparent;
    background: transparent;
@@ -120,18 +136,7 @@ a {
 
 
 }
-.nav-item{
-  text-align: right;
-  padding: 15px;
-  font-size:16px;
-  height:60px;
 
-}
-.nav-item1{
-  padding: 15px;
-  font-size:16px;
-  height:60px;
-}
 
 .information-text-box{
   background-color: lightblue;

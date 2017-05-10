@@ -7,6 +7,9 @@ const Party     = require('../models/party');
 
 //list all partys//
 router.get('/', (req, res, next) => {
+  let user = req.user;
+  console.log(user);
+
   Party.find({}, (error, partys)=>{
     if (error) {
       next(error);
