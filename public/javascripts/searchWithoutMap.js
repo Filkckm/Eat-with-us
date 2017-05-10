@@ -1,8 +1,15 @@
+var ourPosition;
 $(document).ready(() => {
   init();
   init1();
+
   google.maps.event.addDomListener(window, 'load', init);
+  $(".search-button").click(function(){
+    $(this).find("a").attr("href", "/partys?lat=" + $("#lat").val() + "&lng=" + $("#long").val());
+  });
 });
+
+
 
 function init() {
   const input = document.getElementById('locationName');
@@ -43,7 +50,13 @@ function init() {
     }
     location.lat = place.geometry.location.lat();
     location.lng = place.geometry.location.lng();
+
+    $("#lat").val(location.lat);
+    $("#long").val(location.lng);
+
     console.log(location);
+    console.log(location.lat);
+    console.log(location.lng);
   });
 }
   function init1() {

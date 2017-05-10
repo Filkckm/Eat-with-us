@@ -31,6 +31,12 @@ a {
    font-size: 14px;
 }
 /*<<<<<<<<<maps autocomplete*/
+
+#map{
+  height:500px;
+  width:90%;
+  margin: auto;
+}
 /*AUTH FORMS>>>>>>>*/
 
 .auth-input1 {

@@ -1,20 +1,23 @@
 var express     = require('express');
 var router      = express.Router();
 var $           = require('jQuery');
-
+var auth        = require('../helpers/auth');
 const User      = require('../models/user');
 const Party     = require('../models/party');
 
 //list all partys//
 router.get('/', (req, res, next) => {
-  let user = req.user;
+  let user  = req.user;
+  const lat =req.query.lat;
+  const lng = req.query.lng;
   console.log(user);
+  console.log(lat, lng);
 
   Party.find({}, (error, partys)=>{
     if (error) {
       next(error);
     } else {
-      res.render('partys/index', { partys } );
+      res.render('partys/index', { partys, user: JSON.stringify(req.user), lat:lat, lng:lng } );
     }
   });
 });
