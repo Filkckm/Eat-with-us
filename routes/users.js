@@ -121,13 +121,11 @@ router.get('/profile/delete', (req, res, next) => {
 
 //show user profile start*///
 router.get('/profile', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=> {
-  console.log(req.session.passport.user._id);
   let userId = req.session.passport.user._id;
   User.findById(userId, (err, user) => {
     if (err) {
       next(err);
     } else {
-      console.log('this is the profile user:',user);
       res.render('users/show', {user} );
     }
   });

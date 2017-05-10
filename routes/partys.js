@@ -11,7 +11,6 @@ router.get('/', (req, res, next) => {
   let user  = req.user;
   const lat =req.query.lat;
   const lng = req.query.lng;
-  console.log(user);
   console.log(lat, lng);
 
   Party.find({}, (error, partys)=>{
@@ -25,12 +24,10 @@ router.get('/', (req, res, next) => {
 //crate new party://
 
 router.get('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res, next) => {
-  console.log("ggfdjgkdjgk");
-  console.log(req.session.passport.user._id);
+
+  // console.log(req.session.passport.user._id);
   let userId = req.session.passport.user._id;
   let user   = req.user;
-console.log('partys current userId:', userId);
-console.log('partys current user:', user);
 
   User.findById(userId, (err, user) => {
     if (err) { next(err); }
@@ -44,7 +41,6 @@ console.log('partys current user:', user);
 //crate new party://
 ///model details here///
 router.post('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=>{
-  console.log("fgdhjfgjshdfg");
   let userId = req.session.passport.user._id;
   let user   = req.user;
   let party = {
@@ -59,14 +55,35 @@ router.post('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res
     partyHost_id:     userId,
     partyDescription: req.body.description,
   };
+
     Party.create(party, (err, doc)=>{
     if (err) {
       next(err);
     } else {
-      console.log("newpartyyyyyy", party);
-      res.redirect('/');
-    }
-  });
+      Party.findOne(user)
+            .populate('partys')
+            .exec(function (err, user) {
+              if (err) {
+                next(err);
+              } else {
+                console.log(user);
+                console.log(req.user);
+                req.user.partys.push(party);
+                console.log(req.user);
+                partyArray=req.user.partys;
+                //I can update the user, for example the username, but not the partys array///
+                User.findByIdAndUpdate(req.session.passport.user._id,req.user, {new: true}, function(err, user){
+                  if(err){
+                    console.log("Something went wrong when updating data!");
+                  }
+                });
+                // console.log("USER WITH PARTES:",user);
+                res.redirect('/profile');
+                console.log("worked");}
+              });
+
+            }
+          });
 });
 
 //show form to add new party
