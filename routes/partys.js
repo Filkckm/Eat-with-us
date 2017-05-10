@@ -2,8 +2,9 @@ var express     = require('express');
 var router      = express.Router();
 var $           = require('jQuery');
 var auth        = require('../helpers/auth');
-const User      = require('../models/user');
 const Party     = require('../models/party');
+const User      = require('../models/user');
+
 
 //list all partys//
 router.get('/', (req, res, next) => {
@@ -21,10 +22,31 @@ router.get('/', (req, res, next) => {
     }
   });
 });
+//crate new party://
+
+router.get('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res, next) => {
+  console.log("ggfdjgkdjgk");
+  console.log(req.session.passport.user._id);
+  let userId = req.session.passport.user._id;
+  let user   = req.user;
+console.log('partys current userId:', userId);
+console.log('partys current user:', user);
+
+  User.findById(userId, (err, user) => {
+    if (err) { next(err); }
+    res.render('partys/new', { user: user });
+  });
+});
+
+
+
 
 //crate new party://
 ///model details here///
-router.post('/', (req, res, next)=>{
+router.post('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=>{
+  console.log("fgdhjfgjshdfg");
+  let userId = req.session.passport.user._id;
+  let user   = req.user;
   let party = {
     partyName:        req.body.name,
     partyLocation:    req.body.locationName,
@@ -34,22 +56,23 @@ router.post('/', (req, res, next)=>{
     partyGuests:      req.body.guests,
     vegetarian:       req.body.vegetarian,
     partyPrice:       req.body.price,
-    partyHost_id:     req.body.userId,
+    partyHost_id:     userId,
     partyDescription: req.body.description,
   };
     Party.create(party, (err, doc)=>{
     if (err) {
       next(err);
     } else {
-      res.redirect('/partys');
+      console.log("newpartyyyyyy", party);
+      res.redirect('/');
     }
   });
 });
 
 //show form to add new party
-router.get('/new', (req, res) => {
-  res.render('partys/new');
-});
+// router.get('/new', (req, res) => {
+//   res.render('partys/new');
+// });
 
 router.get('/:id/edit', (req, res, next) => {
   Party.findById(req.params.id, (err, party)=>{

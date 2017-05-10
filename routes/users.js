@@ -72,6 +72,9 @@ router.get('/', (req, res, next) => {
   });
 });
 
+
+
+//edit user profile  start*//
 router.get('/profile/edit', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=> {
   console.log(req.session.passport.user._id);
   let userId = req.session.passport.user._id;
@@ -102,7 +105,9 @@ router.post('/profile/edit', auth.checkLoggedIn('You must be login', '/login'), 
     }
   });
 });
+//edit user profile  end*//
 
+//delete user profile start*//
 router.get('/profile/delete', (req, res, next) => {
   User.findByIdAndRemove(userId, (err, user)=>{
     if (err) {
@@ -112,7 +117,9 @@ router.get('/profile/delete', (req, res, next) => {
     }
   });
 });
+//delete user profile end*//
 
+//show user profile start*///
 router.get('/profile', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=> {
   console.log(req.session.passport.user._id);
   let userId = req.session.passport.user._id;
@@ -125,6 +132,6 @@ router.get('/profile', auth.checkLoggedIn('You must be login', '/login'), (req, 
     }
   });
 });
-
+//show user profile end*///
 
 module.exports = router;

@@ -1,24 +1,24 @@
-const mongoose = require("mongoose");
-const Schema   = mongoose.Schema;
-//const Review = require('./review')
+const mongoose  = require("mongoose");
+const Schema    = mongoose.Schema;
+const User      = require('./user');
 
-const partySchema = new Schema({
-  partyName: String,
-  partyLocation: Object,
-  partyDate: Date,
-  partyTime: String,
-  partyType: String,
-  partyGuests: Number,
-  vegetarian: Boolean,
-  partyPrice: Number,
-  partyHost_id: String,
+const PartySchema = new Schema({
+  partyName       : String,
+  partyLocation   : Object,
+  partyDate       : Date,
+  partyTime       : String,
+  partyType       : String,
+  partyGuests     : Number,
+  vegetarian      : Boolean,
+  partyPrice      : Number,
+  partyHost_id    : String,
   partyDescription: String,
-  //  reviews    : [Review.schema]
+  user: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   },
 {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
 
-const Party = mongoose.model("Party", partySchema);
+const Party = mongoose.model("Party", PartySchema);
 
 module.exports = Party;
