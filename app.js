@@ -16,7 +16,7 @@ var $ = require('jQuery');
 const flash          = require("connect-flash");
 const auth           = require('./helpers/auth');
 const User           = require('./models/user');
-const main           = require('./routes/main');
+// const main           = require('./routes/main');
 const profile        = require('./routes/users');
 const index          = require('./routes/index');
 const authRoute      = require('./routes/auth-routes');
@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 //routes
 app.use('/', authRoute);
 app.use('/', index);
-app.use('/', main);
+// app.use('/', main);
 app.use('/', profile);
 app.use('/partys', partys);
 app.use('/users', users);

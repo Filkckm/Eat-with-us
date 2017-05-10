@@ -38,5 +38,5 @@ setTimeout(function(){
    map: map,
    title: "I'm here"
  });
-}, 4500);
+}, 4200);
 }
