@@ -7,6 +7,7 @@ $(document).ready(() => {
 
 });
 
+
   $("#search-button-my").click(function(event){
     event.preventDefault();
     const myLat = $("#lat").val();
@@ -60,7 +61,6 @@ function init() {
 
 
     console.log(location);
-    console.log("hfjksdhfjksdhkjfhksjdfhkjsdhfkjsdhkjfh");
     console.log(location.lat);
     console.log(location.lng);
   });

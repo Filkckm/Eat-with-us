@@ -20,6 +20,7 @@ const User           = require('./models/user');
 const profile        = require('./routes/users');
 const index          = require('./routes/index');
 const authRoute      = require('./routes/auth-routes');
+var api = require('./routes/api');
 var app = express();
 mongoose.connect("mongodb://localhost:27017/eat-with-usDB");
 const session    = require("express-session");
@@ -37,6 +38,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 // app.use(auth.setCurrentUser);
 //session//
 app.use(session({
@@ -61,6 +63,7 @@ app.use((req, res, next) => {
   next();
 });
 //routes
+app.use('/api', api);
 app.use('/', authRoute);
 app.use('/', index);
 // app.use('/', main);

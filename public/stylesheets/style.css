@@ -12,7 +12,6 @@ a {
 }
 
 /*maps autocomplete>>>>>>>>>>*/
-
 #locationName{
   font-size: 100%;
   font-family: sans-serif;
@@ -33,12 +32,12 @@ a {
 /*<<<<<<<<<maps autocomplete*/
 
 #map{
-  height:500px;
+  height:45vh;
   width:90%;
   margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 /*AUTH FORMS>>>>>>>*/
-
 .auth-input1 {
   outline: 0;
  background: #f2f2f2;
@@ -106,7 +105,7 @@ a {
      height:60px;
    }
 /*NAVBAR<<<<<<<<<*/
-
+/*home-site>>>>>>>*/
 .content-header{
   background-color: transparent;
    background: transparent;
@@ -117,8 +116,6 @@ a {
   text-align: center;
   padding-bottom:40px;
 }
-
-
 .index-label{
   color: white;
   font-size: 24px;
@@ -151,12 +148,6 @@ a {
   justify-content: center;
   text-align: center;
 }
-.background-image{
-
-
-}
-
-
 .information-text-box{
   background-color: lightblue;
   text-align: center;
@@ -175,27 +166,6 @@ a {
   width: 15vh  ;
   height: auto;
 }
-.user-info-box-left{
-  border: 2px dotted black;
-}
-.user-description-box{
-  border: 2px dotted black;
-}
-
-.seperator-box{
-  color: white;
-  height: 300px;
-  padding-top: 100px;
-  background-color: #235668;
-}
-.profile-image{
-
-}
-  .name-tag{
-    padding-left: 300px;
-  }
-.text-center{
-}
 .search-button{
   text-transform: uppercase;
   outline: 0;
@@ -210,7 +180,64 @@ a {
   transition: all 0.3 ease;
   cursor: pointer;
 }
+/*<<<<<<<home-site*/
+/*user profile>>>>>>>>>*/
 
+/*alex-user*/
+.header-box-left {
+  border: 1px solid #bbb;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  padding: 7px 0 5px 0;
+  background-color: #eee;
+  margin-top: 40px;
+}
+.user-info-box-left, .user-description-box, .extra-info{
+  font-size: 14px;
+  padding-left: 20px;
+  border: 1px solid #bbb;
+}
+.user-description-box {
+  margin-top: 40px;
+}
+.ratings{
+  margin-top: 50px;
+}
+.extra-info{
+  border: 1px solid #bbb;
+}
+.user-reviews {
+  margin-top: 50px;
+}
+#pro {
+  width: 15%;
+  margin-left: 4%;
+}
+.seperator-box{
+  color: white;
+  height: 300px;
+  padding-top: 100px;
+  background-color: #235668;
+}
+/*alex-user*/
+/*phillip user*/
+/*.user-info-box-left{
+  border: 2px dotted black;
+}
+.user-description-box{
+  border: 2px dotted black;
+}
+
+.profile-image{
+}
+  .name-tag{
+    padding-left: 300px;
+  }
+.text-center{
+}*/
+/*phillip user*/
+/*<<<<<<<<user profile*/
 /*partys/new>>>>>>>>>*/
 .auth-form1{
   position: relative;
@@ -231,3 +258,41 @@ a {
  align-items: center;
 }
 /*<<<<<<<<<<partys/new*/
+
+/*partys/index>>>>>>>>>>*/
+.single-event-listing{
+  padding: 8px;
+  border: 2px solid #235668;
+}
+.event-detail{
+  margin-left:8px;
+}
+.event-price{
+  margin-top: 6px;
+  margin-left:8px;
+}
+.event-link{
+  color: #235668;
+  font-size:20px;
+  font-family:sans-serif;;
+}
+.hose-event{
+  font-size:20px;
+}
+#myButton{
+  margin-left: 5px;
+  text-transform: uppercase;
+  outline: 0;
+  height: 40px;
+  background: #235668;
+  width: 200px;
+  border: 0;
+  padding: px;
+  color: white;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+
+}
+/*<<<<<<<<<<<partys/index*/

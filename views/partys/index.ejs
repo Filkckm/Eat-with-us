@@ -1,41 +1,44 @@
 
-    <div class="navbar navbar-default navbar-fixed-top navbar-inner" data-toggle="collapse">
-        <div class="row">
-            <div class="col-xs-12 col-sm-7 col-lg-7 nav-item1">
-              <a href="/">Home</a></div>
-            <div class="col-xs-12 col-sm-5 col-lg-5 nav-item">
-                    <a href="/profile">Profile</a>
-                    <a href="/logout">Logout</a>
-            </div>
-        </div>
-    </div>
-    <h1>Main Site</h1>
+<br><br>
     <br>
-    <h2>search results:</h2>
+<br><br>
     <div id="map"></div>
-  <br><br><br>
-    <a href="/partys/new">New party</a>
+  <br>
+  <hr>
 
-    <ul>
-      <% partys.forEach((party) => { %>
-        <li>
-          <a href="/partys/<%= party._id %>"><%= party.partyName %> - $<%= party.partyPrice %></a>
-          <a href="/partys/<%= party._id %>/edit">Edit</a>
-          <a href="/partys/<%= party._id %>/delete">Delete</a>
-        </li>
-      <%  }) %>
-    </ul>
-    <br>
+    <button id="myButton" class="host-event" >Host an event</button>
+    <div>
+
+                  <% partys.forEach((party) => { %>
+              <div class="container single-event-listing">
+                      <a class="event-link"href="/partys/<%= party._id %>"><%= party.partyName %> </a>
+                      <p class="event-price"><strong>Price per person:</strong> $<%= party.partyPrice %> </p>
+                      <p class="event-detail"><strong>Description:</strong> <%= party.partyDescription %> </p>
+                      <p class="event-detail"><strong>Address:</strong> <%= party.partyLocation %> </p>
+                      <!-- <a href="/partys/<%= party._id %>/edit">Edit</a> -->
+                      <!-- <a href="/partys/<%= party._id %>/delete">Delete</a> -->
+              </div>
+              <br>
+                  <%})%>
+
+        </div>
+
 
 
     <!-- scripts -->
+    <script type="text/javascript">
+      document.getElementById("myButton").onclick = function () {
+          location.href = "partys/new";
+      };
+  </script>
+    <script type="text/javascript">
+     var myPartys = [<%- partys %>];
+     </script>
+
         <script type="text/javascript">
           var lat = <%- lat %>;
           var lng = <%- lng %>;
           console.log(lat, lng)
         </script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIE4dsj3p9EoaRDnXSw24m9yGx_zCn0U"></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="/javascripts/searchWithoutMap.js"></script>
-        <script type="text/javascript" src="/javascripts/main.js"></script>
+
   </body>

@@ -19,6 +19,7 @@ router.get('/', (req, res, next) => {
     } else {
       res.render('partys/index', { partys, user: JSON.stringify(req.user), lat:lat, lng:lng } );
     }
+
   });
 });
 //crate new party://
@@ -43,18 +44,27 @@ router.get('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res,
 router.post('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=>{
   let userId = req.session.passport.user._id;
   let user   = req.user;
-  let party = {
-    partyName:        req.body.name,
-    partyLocation:    req.body.locationName,
-    partyDate:        req.body.date,
-    partyTime:        req.body.time,
-    partyType:        req.body.type,
-    partyGuests:      req.body.guests,
-    vegetarian:       req.body.vegetarian,
-    partyPrice:       req.body.price,
-    partyHost_id:     userId,
-    partyDescription: req.body.description,
-  };
+
+  var party = new Party();
+
+
+    party.partyName=              req.body.name;
+    party.partyLocation=           req.body.locationName;
+    party.partyDate=               req.body.date;
+    party.partyTime=               req.body.time;
+    party.partyType=               req.body.type;
+    party.partyGuests=             req.body.guests;
+    party.vegetarian=              req.body.vegetarian;
+    party.partyPrice=              req.body.price;
+    party.partyHost_id=            req.user;
+    party.partyDescription=        req.body.description;
+    party.location.type=           'Point';
+    party.location.coordinates =   [req.body.long, req.body.lat];
+    // party.save((error) => {
+    // 		  		if (error) {
+    // 		  			next(error);
+    // 		  		}
+    // 		  	});
 
     Party.create(party, (err, doc)=>{
     if (err) {

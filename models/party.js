@@ -11,14 +11,19 @@ const PartySchema = new Schema({
   partyGuests     : Number,
   vegetarian      : Boolean,
   partyPrice      : Number,
-  partyHost_id    : String,
+  partyHost       : [{ type: Schema.Types.Object, ref: 'User' }],
   partyDescription: String,
+  location: {
+  	type: {type: String},
+  	coordinates: [Number]
+  }
   // user: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   },
 {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
 
+PartySchema.index({location: '2dsphere'});
 const Party = mongoose.model("Party", PartySchema);
 
 module.exports = Party;
