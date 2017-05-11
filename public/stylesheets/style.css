@@ -157,6 +157,11 @@ a {
   width: 15vh  ;
   height: auto;
 }
+.img-circle1{
+  margin-bottom: 0px;
+  width: 15vh  ;
+  height: auto;
+}
 .user-info-box-left{
   border: 2px dotted black;
 }

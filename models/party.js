@@ -13,7 +13,7 @@ const PartySchema = new Schema({
   partyPrice      : Number,
   partyHost_id    : String,
   partyDescription: String,
-  user: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  // user: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   },
 {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

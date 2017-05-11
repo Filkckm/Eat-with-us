@@ -66,20 +66,19 @@ router.post('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res
               if (err) {
                 next(err);
               } else {
-                console.log(user);
-                console.log(req.user);
                 req.user.partys.push(party);
-                console.log(req.user);
-                partyArray=req.user.partys;
+                let partyArray = req.user.partys;
                 //I can update the user, for example the username, but not the partys array///
-                User.findByIdAndUpdate(req.session.passport.user._id,req.user, {new: true}, function(err, user){
+                User.findByIdAndUpdate(req.session.passport.user._id, {$set:{"partys":partyArray}},{new: true},function(err, user){
                   if(err){
                     console.log("Something went wrong when updating data!");
+                  } else{
+                    console.log("worked, probably", user);
                   }
                 });
-                // console.log("USER WITH PARTES:",user);
                 res.redirect('/profile');
-                console.log("worked");}
+                console.log("worked");
+              }
               });
 
             }

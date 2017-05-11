@@ -9,7 +9,7 @@ const UserSchema = new Schema({
   address       : Object,
   description   : String,
   userReviews   : Array,
-  partys        : [{ type: Schema.Types.ObjectId, ref: 'Party' }],
+  partys        : [{ type: Schema.Types.Object, ref: 'Party' }],
   role: {
         type: String,
         enum : ['USER','EDITOR', 'ADMIN'],
