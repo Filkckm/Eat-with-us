@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
     if (error) {
       next(error);
     } else {
-      res.render('users/index', { users } );
+      res.render('users/index', { users, user:JSON.stringify(req.user) } );
     }
   });
 });
@@ -44,7 +44,7 @@ router.get('/:userId', (req, res, next)=> {
     if (err) {
       next(err);
     } else {
-      res.render('users/show', product );
+      res.render('users/show', product ,{users,});
     }
   });
 });
@@ -67,7 +67,7 @@ router.get('/', (req, res, next) => {
       next(error);
     } else {
       console.log(users);
-      res.render('users/index', { users } );
+      res.render('users/index',{ users, user:JSON.stringify(req.user) } );
     }
   });
 });
@@ -126,7 +126,7 @@ router.get('/profile', auth.checkLoggedIn('You must be login', '/login'), (req, 
     if (err) {
       next(err);
     } else {
-      res.render('users/show', {user} );
+      res.render('users/show', { user } );
     }
   });
 });
