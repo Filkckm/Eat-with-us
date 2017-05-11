@@ -43,6 +43,7 @@ router.get('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res,
 ///model details here///
 router.post('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res, next)=>{
   let userId = req.session.passport.user._id;
+  let userName= req.session.passport.user.username;
   let user   = req.user;
 
   var party = new Party();
@@ -56,7 +57,7 @@ router.post('/new', auth.checkLoggedIn('You must be login', '/login'), (req, res
     party.partyGuests=             req.body.guests;
     party.vegetarian=              req.body.vegetarian;
     party.partyPrice=              req.body.price;
-    party.partyHost_id=            req.user;
+    party.partyHost=               userName;
     party.partyDescription=        req.body.description;
     party.location.type=           'Point';
     party.location.coordinates =   [req.body.long, req.body.lat];
