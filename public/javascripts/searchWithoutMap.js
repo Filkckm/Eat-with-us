@@ -9,7 +9,6 @@ $(document).ready(() => {
 
   $("#search-button-my").click(function(event){
     event.preventDefault();
-    console.log("click me!!!!!!😉");
     const myLat = $("#lat").val();
     const myLng = $("#long").val();
     window.location.href = `/partys?lat=${myLat}&lng=${myLng}`;
@@ -59,7 +58,9 @@ function init() {
     $("#lat").val(location.lat);
     $("#long").val(location.lng);
 
+
     console.log(location);
+    console.log("hfjksdhfjksdhkjfhksjdfhkjsdhfkjsdhkjfh");
     console.log(location.lat);
     console.log(location.lng);
   });
@@ -103,6 +104,10 @@ function init() {
       }
       location.lat = place.geometry.location.lat();
       location.lng = place.geometry.location.lng();
+
+      $("#lat1").val(location.lat);
+      $("#long1").val(location.lng);
+
       console.log(location);
     });
 

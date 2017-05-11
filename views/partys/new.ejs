@@ -1,35 +1,40 @@
+<br><br>
+<div class="container-fluid auth-form-container2">
 
-  <h2>Create a new Event:</h2>
-  <p><%=user._id%></p>
-  <form action="/partys/new" method="POST">
-          <label for="name">Name:</label>
-          <input type="text" id="name1" name="name">
+  <div class="container auth-form1">
+      <form action="/partys/new" method="POST">
+        <!-- <label for="name">Name:</label> -->
+        <input placeholder="Event name" class="auth-input1" type="text" id="name1" name="name">
         <br>
-          <label for="location">Where are you going?</label>
-          <input id="locationName" name="locationName" type="text" class="input-form">
+        <!-- <label for="location">Where are you going?</label> -->
+        <input id="locationName1" name="locationName" type="text" class="auth-input1" >
+        <input id="long1" type="text" name="long">
+        <input id="lat1" type="text" name="lat">
         <br>
-          <label for="price">Price:</label>
-          <input type="number1" name="price" id="price1">
+        <!-- <label for="price">Price:</label> -->
+        <input placeholder="Price per guest?" class="auth-input1" type="number" name="price" id="price1">
         <br>
-          <label for="description">Description:</label>
-          <textarea type="text" name="description" id="description1"></textarea>
+        <!-- <label for="description">Description:</label> -->
+        <textarea placeholder="Describe your event" class="auth-input1" type="text" name="description" id="description1"></textarea>
         <br>
-          <label for="date">Date:</label>
-          <input type="date" name="date" id="date1">
+        <!-- <label for="date">Date:</label> -->
+        <input class="auth-input1" type="date" name="date" id="date1">
         <br>
-          <label for="type">Type:</label>
-          <input type="text" name="type" id="type1">
+        <!-- <label for="type">Type:</label> -->
+        <input placeholder="Type of your event, e.g., brunch or dinner?" class="auth-input1" type="text" name="type" id="type1">
         <br>
-          <label for="guests">Guests</label>
-          <input type="guests" name="guests" id="guests1">
+        <!-- <label for="guests">Guests</label> -->
+        <input placeholder="How many guests do you want?" class="auth-input1" type="guests" name="guests" id="guests1">
         <br>
-          <label for="time">Time</label>
-          <input type="text" name="time" id="time1">
+        <!-- <label for="time">Time</label> -->
+        <input placeholder="When does it start?" class="auth-input1" type="time" name="time" id="time1">
         <br>
-          <label for="vegetarian">Vegetarian:</label>
-          <input type="text" name="vegetarian" id="vegetarian1">
+        <!-- <label for="vegetarian">Vegetarian:</label> -->
+        <input placeholder="Are vegetarians cared for?" class="auth-input1" type="text" name="vegetarian" id="vegetarian1">
 
         <br>
-    <button type="submit">Create Event</button>
+        <button class="auth-button1" type="submit">Create Event</button>
 
-  </form>
+      </form>
+    </div>
+  </div>

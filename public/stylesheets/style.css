@@ -86,11 +86,13 @@ a {
 /*<<<<<<<AUTH FORMS*/
 /*NAVBAR>>>>>>>*/
 .navbar-inner{
+  color:#235668;
   background-color: transparent;
    background: transparent;
    border-color: transparent;
 }
    .nav-item{
+     color:#235668;
      text-align: right;
      padding: 15px;
      font-size:16px;
@@ -98,11 +100,13 @@ a {
 
    }
    .nav-item1{
+     color:#235668;
      padding: 15px;
      font-size:16px;
      height:60px;
    }
 /*NAVBAR<<<<<<<<<*/
+
 .content-header{
   background-color: transparent;
    background: transparent;
@@ -121,9 +125,18 @@ a {
 }
 
 .input-form{
+  text-align:center;
   font-size: 100%;
+  min-width: 120px;
   font-family: sans-serif;
-  max-width:200px ;
+  max-width:400px ;
+  height: 40px;
+}
+.input-form-location{
+  font-size: 100%;
+  min-width: 200px;
+  font-family: sans-serif;
+  max-width:400px ;
   height: 40px;
 }
 .search-date-container{
@@ -197,3 +210,24 @@ a {
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
+/*partys/new>>>>>>>>>*/
+.auth-form1{
+  position: relative;
+  z-index: 1;
+  /*width: 360px;*/
+  background: #FFFFFF;
+  max-width: 600px;
+  margin: 0 auto 100px;
+  margin-top: 10vh;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.auth-form-container2{
+  background-color: #235668;
+  height:100vh;
+ display: flex;
+ align-items: center;
+}
+/*<<<<<<<<<<partys/new*/
