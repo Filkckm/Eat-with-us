@@ -51,7 +51,6 @@ var  map = new google.maps.Map(document.getElementById('map'), {
  // });
 
 
-
  function placePartys(partys){
      partys.forEach(function(party){
        var center1 = {
@@ -81,5 +80,5 @@ var  map = new google.maps.Map(document.getElementById('map'), {
 
 }
 getParty();
-}, 4400);
+}, 4800);
 }
