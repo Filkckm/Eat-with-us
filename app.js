@@ -13,7 +13,6 @@ const Party          = require('./models/party');
 const users          = require('./routes/users');
 // const portDB         = require('./config').portDB;
 // const databaseName   = require('./config').databaseName;
-var $ = require('jQuery');
 const flash          = require("connect-flash");
 const auth           = require('./helpers/auth');
 const User           = require('./models/user');
