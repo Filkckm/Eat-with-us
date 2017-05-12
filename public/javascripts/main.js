@@ -1,6 +1,6 @@
 var ourPosition;
 var markers = [];
-var map;
+
 $(document).ready(function(){
  startMap();
 });
@@ -30,23 +30,13 @@ function startMap() {
 
 
 
-setTimeout(function(partys){
-if (ourPosition) {
-  map = new google.maps.Map(document.getElementById('map'), {
+setTimeout(function(){
+
+var  map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
     center: ourPosition
   });
-} else {
-  var newCenter = {
-    lat: 41.38506389999999,
-    lng: 2.1734034999999494
-  };
-  console.log("new center:",newCenter);
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
-    center: newCenter
-  });
-}
+
 
  //console.log(ourPosition);
 
