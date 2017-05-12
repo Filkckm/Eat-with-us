@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const passport = require("../helpers/passport");
-var $ = require('jQuery');
 // set up bcrypt
 const bcrypt = require('bcrypt');
 const bcryptSalt     = 10;

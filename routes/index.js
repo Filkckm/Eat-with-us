@@ -1,6 +1,5 @@
 var express       = require('express');
 var router        = express.Router();
-var $             = require('jQuery');
 const User        = require('../models/user');
 const passport    = require("../helpers/passport");
 const auth        = require('../helpers/auth');
