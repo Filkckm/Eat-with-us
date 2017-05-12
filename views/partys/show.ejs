@@ -1,4 +1,30 @@
 <%- include('../partials/navbar') %>
-<h1><%= partyName %></h1>
-<h3>Price: <span>$<%= partyPrice %></span></h3>
-<p><%= partyDescription %></p>
+
+<br><br>
+    <br>
+<br><br>
+    <div id="map"></div>
+  <br>
+  <hr>
+
+    <button id="myButton" class="host-event" >Host an event</button>
+    <div>
+<br>
+<div class="container-fluid party-container">
+  <div class="container single-event-listing">
+        <h1><%= partyName %></h1>
+        <br>
+        <h4>Price: <span>$<%= partyPrice %> per person</span></h4>
+        <br>
+        <h4> Descripttion:</h4>
+        <p><%= partyDescription %></p>
+        <br>
+        <h4> Number of guests:</h4>
+        <p><%= partyGuests %></p>
+    </div>
+</div>
+<script type="text/javascript">
+  document.getElementById("myButton").onclick = function () {
+      location.href = "new";
+    };
+</script>

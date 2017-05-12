@@ -144,14 +144,14 @@ router.get('/:id/delete', (req, res, next) => {
 });
 
 //show a certain party//
-router.get('/:partyId', (req, res, next)=> {
+router.get('/:partyId', auth.checkLoggedIn('You must be login', '/login'), (req, res, next) => {
   let partyId = req.params.partyId;
-
+  let user   = req.user;
   Party.findById(partyId, (err, party) => {
     if (err) {
       next(err);
     } else {
-      res.render('partys/show', party );
+      res.render('partys/show', party);
     }
   });
 });

@@ -11,7 +11,7 @@ const PartySchema = new Schema({
   partyGuests     : Number,
   vegetarian      : Boolean,
   partyPrice      : Number,
-  partyHost      : String,
+  partyHost       : String,
   partyDescription: String,
   location: {
   	type: {type: String},

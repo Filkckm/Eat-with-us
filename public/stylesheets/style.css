@@ -148,6 +148,7 @@ a {
   justify-content: center;
   text-align: center;
 }
+
 .information-text-box{
   background-color: lightblue;
   text-align: center;
@@ -155,10 +156,11 @@ a {
   border-radius: 30px;
   height: 500px;
   padding: 20px;
+
 }
 .img-circle{
   margin-bottom: 0px;
-  width: 15vh  ;
+  width: 120px;
   height: auto;
 }
 .img-circle1{
@@ -211,16 +213,40 @@ a {
   margin-top: 50px;
 }
 #pro {
-  width: 15%;
+
+  width: 60px;
+  height: 60px;
   margin-left: 4%;
 }
 .seperator-box{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   height: 300px;
   padding-top: 100px;
   background-color: #235668;
 }
+.image-username-container{
+
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+  width:400px;;
+  height:45%;
+  margin-top:60px;
+
+  display:flex;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.name-tag{
+font-size: 40px;
+margin-left:30px;
+
+}
 /*alex-user*/
+
 /*phillip user*/
 /*.user-info-box-left{
   border: 2px dotted black;
@@ -229,11 +255,8 @@ a {
   border: 2px dotted black;
 }
 
-.profile-image{
-}
-  .name-tag{
-    padding-left: 300px;
-  }
+
+
 .text-center{
 }*/
 /*phillip user*/
@@ -296,3 +319,6 @@ a {
 
 }
 /*<<<<<<<<<<<partys/index*/
+/*party/show>>>>>>>*/
+
+/*party/show<<<<<<<*/

@@ -14,8 +14,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-md-lg-12 seperator-box">
-          <img id="pro" src="images/pro.png" class="profile-image" alt="profile pic of: <%=user.username%>">
-            <div><h2 class="name-tag"><%= user.username %></h2></div>
+          <div class="image-username-container">
+
+            <img id="pro" src="images/darth-vader.png" class="profile-image" alt="profile pic of: <%=user.username%>">
+            <h2 class="name-tag"><%= user.username %></h2>
+
+          </div>
         </div>
       </div>
     </div>
@@ -49,8 +53,9 @@
         <h4>baksdb</h4>
           <span>jdkk</span><br><br>
       </div>
+      <br>
       <div class="create-event">
-        <button><a href="/partys/new">Create new event</a></button>
+        <button id="myButton" class="host-event" >Host an event</button>
       </div>
     </div>
     <!-- about me -->
@@ -70,7 +75,7 @@
           <%var myPartys=user.partys%>
           <%myPartys.forEach((party) =>{%>
             <div>
-            <p><a href="/partys/<%= party._id %>"><%=party.partyName%></a></p>
+            <h5><a href="/partys/<%= party._id %>"><%=party.partyName%></a></h5>
             </div>
           <%});%>
 
@@ -83,6 +88,11 @@
     <!-- about me -->
   </div>
 </div>
+<script type="text/javascript">
+  document.getElementById("myButton").onclick = function () {
+      location.href = "partys/new";
+    };
+</script>
   </body>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </html>
