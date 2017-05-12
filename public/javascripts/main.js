@@ -67,9 +67,19 @@ var  map = new google.maps.Map(document.getElementById('map'), {
        console.log(markers);
      });
 }
+// function getParty() {
+//     $.ajax({
+//       url: "http://localhost:3000/api",
+//       method: 'GET',
+//       success: placePartys,
+//       error: function(error) {
+//         console.log('error');
+//       }
+//
+//     });
  function getParty() {
      $.ajax({
-       url: "http://localhost:3000/api",
+       url: "https://eat-with-us.herokuapp.com/api",
        method: 'GET',
        success: placePartys,
        error: function(error) {
