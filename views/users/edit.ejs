@@ -1,0 +1,26 @@
+
+      <div class="container-fluid auth-form-container">
+        <div class="container auth-form">
+          <!-- username -->
+
+          <form class="signup-form" action="/profile/edit" method="POST">
+              <input class="auth-input1" type="text" name="username" placeholder="username">
+              <br>
+              <input class="auth-input1" type="textarea" name="description" placeholder="write something about yourself">
+
+            <!-- address -->
+              <br>
+              <div class="address-container">
+                <input class="auth-input1" id="locationName1" name="address" type="text"  placeholder="Address">
+            <!-- if account login -->
+              <button class="auth-button1">Update</button>
+              </form>
+
+              </div>
+        </div>
+</div>
+<!-- errormessage -->
+  <br>
+  <%if (typeof(errorMessage) != "undefined") { %>
+    <div class ="error-message"> <%=errorMessage%>
+  <% } %>

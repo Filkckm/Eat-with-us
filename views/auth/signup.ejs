@@ -5,47 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="stylesheets/style.css">
-
   <title>Sign Up</title>
 </head>
-
-<!-- username -->
 <body>
-  <form class="signup-form" action="/signup" method="POST">
-  <label for="username">Username: </label>
-  <input type="text" name="username" placeholder="username">
+      <div class="container-fluid auth-form-container">
+        <div class="container auth-form">
+          <!-- username -->
 
-<!-- password -->
-  <br>
-  <label for="password">Password:</label>
-  <input type="text" name="password" placeholder="password">
+              <form class="signup-form" action="/signup" method="POST">
+              <input class="auth-input1" type="text" name="username" placeholder="username">
+            <!-- password -->
+              <br>
+              <input class="auth-input1" type="text" name="password" placeholder="password">
 
-<!-- address -->
-  <br>
-  <div class="address-container">
-    <h2>Address:</h2>
-    <label for="location">Address</label>
-    <input id="locationName" name="locationName" type="text" class="input-form">
-  </div>
+            <!-- address -->
+              <br>
+              <div class="address-container">
+                <input class="auth-input1" id="locationName1" name="locationName" type="text"  placeholder="Address">
+            <!-- if account login -->
+                 <p class="message">Have an account?<a href="/login">Log in</a></p>
+                <button class="auth-button1">Create account</button>
+              </form>
 
-
+              </div>
+        </div>
+</div>
 <!-- errormessage -->
   <br>
   <%if (typeof(errorMessage) != "undefined") { %>
     <div class ="error-message"> <%=errorMessage%>
   <% } %>
-<button> Create account</button>
-  </form>
+
 
 
 </body>
 <script type="text/javascript"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIE4dsj3p9EoaRDnXSw24m9yGx_zCn0U&libraries=places"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/javascripts/searchWithoutMap.js"></script>
-
-
-
-
 
 </html>

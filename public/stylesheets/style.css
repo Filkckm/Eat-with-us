@@ -11,12 +11,101 @@ a {
   margin-right: 10px;
 }
 
+/*maps autocomplete>>>>>>>>>>*/
+#locationName{
+  font-size: 100%;
+  font-family: sans-serif;
+  max-width:200px ;
+  height: 40px;
+}
+
+#locationName1{
+   outline: 0;
+   background: #f2f2f2;
+   width: 100%;
+   border: 0;
+   margin: 0 0 15px;
+   padding: 15px;
+   box-sizing: border-box;
+   font-size: 14px;
+}
+/*<<<<<<<<<maps autocomplete*/
+
+#map{
+  height:45vh;
+  width:90%;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/*AUTH FORMS>>>>>>>*/
+.auth-input1 {
+  outline: 0;
+ background: #f2f2f2;
+ width: 100%;
+ border: 0;
+ margin: 0 0 15px;
+ padding: 15px;
+ box-sizing: border-box;
+ font-size: 14px;
+}
+.auth-button1{
+  text-transform: uppercase;
+  outline: 0;
+  background: #235668;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.auth-label{
+  color: darkgrey;
+
+}
+.auth-form-container{
+  background-color: #235668;
+  height:100vh;
+ display: flex;
+ align-items: center;
+}
+.auth-form{
+  position: relative;
+  z-index: 1;
+  /*width: 360px;*/
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/*<<<<<<<AUTH FORMS*/
+/*NAVBAR>>>>>>>*/
 .navbar-inner{
+  color:#235668;
   background-color: transparent;
    background: transparent;
    border-color: transparent;
-
 }
+   .nav-item{
+     color:#235668;
+     text-align: right;
+     padding: 15px;
+     font-size:16px;
+     height:60px;
+
+   }
+   .nav-item1{
+     color:#235668;
+     padding: 15px;
+     font-size:16px;
+     height:60px;
+   }
+/*NAVBAR<<<<<<<<<*/
+/*home-site>>>>>>>*/
 .content-header{
   background-color: transparent;
    background: transparent;
@@ -27,39 +116,37 @@ a {
   text-align: center;
   padding-bottom:40px;
 }
-#locationName{
-  font-size: 100%;
-  font-family: sans-serif;
-  width: 40%;
-  height: 40px;
-}
-label {
+.index-label{
   color: white;
   font-size: 24px;
 }
+
 .input-form{
+  text-align:center;
+  font-size: 100%;
+  min-width: 120px;
+  font-family: sans-serif;
+  max-width:400px ;
   height: 40px;
-  font-size: 20px;
+}
+.input-form-location{
+  font-size: 100%;
+  min-width: 200px;
+  font-family: sans-serif;
+  max-width:400px ;
+  height: 40px;
 }
 .search-date-container{
-  padding-top: 300px;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
   background: url("http://wallpaper-gallery.net/images/wallpaper-food/wallpaper-food-13.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  align-items: center;
-}
-
-.nav-item{
-  padding: 15px;
-  font-size:16px;
-  height:60px;
-
-}
-.nav-item1{
-  padding: 15px;
-  font-size:16px;
-  height:60px;
+  justify-content: center;
+  text-align: center;
 }
 
 .information-text-box{
@@ -69,32 +156,169 @@ label {
   border-radius: 30px;
   height: 500px;
   padding: 20px;
+
 }
 .img-circle{
+  margin-bottom: 0px;
+  width: 120px;
+  height: auto;
+}
+.img-circle1{
   margin-bottom: 0px;
   width: 15vh  ;
   height: auto;
 }
-.user-info-box-left{
+.search-button{
+  text-transform: uppercase;
+  outline: 0;
+  height: 40px;
+  background: white;
+  width: 200px;
+  border: 0;
+  padding: px;
+  color: grey;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+/*<<<<<<<home-site*/
+/*user profile>>>>>>>>>*/
+
+/*alex-user*/
+.header-box-left {
+  border: 1px solid #bbb;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  padding: 7px 0 5px 0;
+  background-color: #eee;
+  margin-top: 40px;
+}
+.user-info-box-left, .user-description-box, .extra-info{
+  font-size: 14px;
+  padding-left: 20px;
+  border: 1px solid #bbb;
+}
+.user-description-box {
+  margin-top: 40px;
+}
+.ratings{
+  margin-top: 50px;
+}
+.extra-info{
+  border: 1px solid #bbb;
+}
+.user-reviews {
+  margin-top: 50px;
+}
+#pro {
+
+  width: 60px;
+  height: 60px;
+  margin-left: 4%;
+}
+.seperator-box{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 300px;
+  padding-top: 100px;
+  background-color: #235668;
+}
+.image-username-container{
+
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+  width:400px;;
+  height:45%;
+  margin-top:60px;
+
+  display:flex;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.name-tag{
+font-size: 40px;
+margin-left:30px;
+
+}
+/*alex-user*/
+
+/*phillip user*/
+/*.user-info-box-left{
   border: 2px dotted black;
 }
 .user-description-box{
   border: 2px dotted black;
 }
 
-.seperator-box{
-  height: 300px;
-  padding-top: 100px;
-  background-color: lightblue;
+
+
+.text-center{
+}*/
+/*phillip user*/
+/*<<<<<<<<user profile*/
+/*partys/new>>>>>>>>>*/
+.auth-form1{
+  position: relative;
+  z-index: 1;
+  /*width: 360px;*/
+  background: #FFFFFF;
+  max-width: 600px;
+  margin: 0 auto 100px;
+  margin-top: 10vh;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.profile-image{
+.auth-form-container2{
+  background-color: #235668;
+  height:100vh;
+ display: flex;
+ align-items: center;
+}
+/*<<<<<<<<<<partys/new*/
+
+/*partys/index>>>>>>>>>>*/
+.single-event-listing{
+  padding: 8px;
+  border: 2px solid #235668;
+}
+.event-detail{
+  margin-left:8px;
+}
+.event-price{
+  margin-top: 6px;
+  margin-left:8px;
+}
+.event-link{
+  color: #235668;
+  font-size:20px;
+  font-family:sans-serif;;
+}
+.hose-event{
+  font-size:20px;
+}
+#myButton{
+  margin-left: 5px;
+  text-transform: uppercase;
+  outline: 0;
+  height: 40px;
+  background: #235668;
+  width: 200px;
+  border: 0;
+  padding: px;
+  color: white;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
 
 }
-  .name-tag{
-    padding-left: 300px;
-  }
-.search-button{
-  background: white;
-  width:100px;
-  height:40px;
-}
+/*<<<<<<<<<<<partys/index*/
+/*party/show>>>>>>>*/
+
+/*party/show<<<<<<<*/

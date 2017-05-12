@@ -1,0 +1,98 @@
+
+<!-- navbar different from main -->
+    <div class="navbar navbar-default navbar-fixed-top navbar-inner" data-toggle="collapse">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-lg-7 nav-item1">
+              <a href="/">Home</a></div>
+            <div class="col-xs-12 col-sm-5 col-lg-5 nav-item">
+                <a href="/profile/edit">Edit</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+<!-- seperator -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-md-lg-12 seperator-box">
+          <div class="image-username-container">
+
+            <img id="pro" src="images/darth-vader.png" class="profile-image" alt="profile pic of: <%=user.username%>">
+            <h2 class="name-tag"><%= user.username %></h2>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- profiledetails -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <!--Sidebar content-->
+      <div class="header-box-left">
+        <span>Contact Information</span>
+      </div>
+      <div class="user-info-box-left">
+          <h4>Address:</h4>
+            <span><%= user.address %></span><br><br>
+          <h4>Email address:</h4>
+            <span>randommail@gmail.com</span><br><br>
+          <h4>Phone number:</h4>
+            <span>686 20 31 22</span><br><br>
+      </div>
+      <div class="header-box-left">
+        <span>More Information</span>
+      </div>
+      <div class="extra-info">
+        <h4>kjbdk</h4>
+          <span>ksbfdk</span><br><br>
+        <h4>Languages</h4>
+            <span>Spanish</span><br>
+            <span>English</span><br>
+            <span>Dumitrescu</span>
+          <br><br>
+        <h4>baksdb</h4>
+          <span>jdkk</span><br><br>
+      </div>
+      <br>
+      <div class="create-event">
+        <button id="myButton" class="host-event" >Host an event</button>
+      </div>
+    </div>
+    <!-- about me -->
+    <div class="col-xs-12 col-sm-8 user-description-box">
+          <div class="box-right">
+            <h4>About me</h4>
+            <p><span ><%= user.description %>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</span></p>
+          </div>
+          <div class="ratings box-right">
+          <h4>Ratings</h4>
+          <span>*****</span></div>
+          <div class="user-reviews">
+            <h4>Reviews</h4>
+            <p>placeholder: for reviews</p>
+        <div class="user-reviews">
+          <h4>Events:</h4>
+          <%var myPartys=user.partys%>
+          <%myPartys.forEach((party) =>{%>
+            <div>
+            <h5><a href="/partys/<%= party._id %>"><%=party.partyName%></a></h5>
+            </div>
+          <%});%>
+
+
+
+
+
+          </div>
+    </div>
+    <!-- about me -->
+  </div>
+</div>
+<script type="text/javascript">
+  document.getElementById("myButton").onclick = function () {
+      location.href = "partys/new";
+    };
+</script>
+  </body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</html>
