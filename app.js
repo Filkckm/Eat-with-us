@@ -23,7 +23,7 @@ const index          = require('./routes/index');
 const authRoute      = require('./routes/auth-routes');
 var api = require('./routes/api');
 var app = express();
-mongoose.connect("mongodb://heroku_v3ngcdkr:5t77j50bpvsluan6td7emep7i7@ds133981.mlab.com:33981/heroku_v3ngcdkr");
+mongoose.connect(process.env.MONGODB_URI);
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 // require user model
