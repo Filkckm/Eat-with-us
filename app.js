@@ -5,6 +5,7 @@ const path           = require('path');
 const favicon        = require('serve-favicon');
 const logger         = require('morgan');
 const cookieParser   = require('cookie-parser');
+require("dotenv").config();
 const bodyParser     = require('body-parser');
 const mongoose       = require('mongoose');
 const partys         = require('./routes/partys');
